@@ -26,15 +26,6 @@ class HomeActivity : DaggerAppCompatActivity() {
   }
 
   private fun stateHandler(state: HomeViewState) {
-    when (state) {
-      is Loading -> println("Loading...")
-      is Show -> println("Show...")
-      is Success -> {
-        println(state.entity.data.first().title)
-        println(state.entity.data.first().description)
-        println(state.entity.data.first().image)
-      }
-      is Failed -> println(state.exception)
-    }
+    TODO("Not yet implemented!")
   }
 }
