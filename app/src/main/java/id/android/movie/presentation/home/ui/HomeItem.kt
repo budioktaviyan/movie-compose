@@ -5,7 +5,6 @@ import androidx.ui.core.Modifier
 import androidx.ui.foundation.Text
 import androidx.ui.layout.Column
 import androidx.ui.layout.Row
-import androidx.ui.layout.RowScope.weight
 import androidx.ui.layout.padding
 import androidx.ui.layout.preferredSize
 import androidx.ui.material.EmphasisAmbient
@@ -19,8 +18,8 @@ import id.android.movie.ext.CoilImage
 
 @Composable
 fun HomeItem(data: Data) {
-  Column(Modifier.weight(1f)) {
-    MovieImage(data = data)
+  Column {
+    MovieImage(data)
     MovieTitle(
         data = data,
         modifier = Modifier.padding(top = 8.dp, start = 8.dp, end = 8.dp)

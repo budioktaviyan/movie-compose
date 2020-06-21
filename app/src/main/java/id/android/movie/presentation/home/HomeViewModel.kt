@@ -31,12 +31,10 @@ class HomeViewModel(private val usecase: HomeUsecase) : ViewModel(), HomeView {
   inner class HomeUsecaseObserver : DefaultObserver<HomeEntity>() {
 
     override fun onSuccess(t: HomeEntity) {
-      observer.postValue(HomeViewState.Show)
       observer.postValue(HomeViewState::Success.invoke(t))
     }
 
     override fun onError(e: Throwable?) {
-      observer.postValue(HomeViewState.Show)
       observer.postValue(HomeViewState::Failed.invoke("$e"))
     }
   }
