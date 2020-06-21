@@ -2,6 +2,7 @@
           package="id.android.movie">
 
   <application
+      android:name=".MovieApp"
       android:allowBackup="false"
       android:fullBackupContent="false"
       android:icon="@mipmap/ic_launcher"
