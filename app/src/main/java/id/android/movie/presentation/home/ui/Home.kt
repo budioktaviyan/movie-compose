@@ -39,18 +39,13 @@ fun Home(view: HomeView) {
       },
       bodyContent = { innerPadding ->
         val modifier = Modifier.padding(innerPadding)
-
         val state by view.states.observeAsState(Loading)
-        when (state) {
-          is Loading -> HomeLoading()
-          is Success -> {
-            val entity = (state as Success).entity
-            HomeBody(data = entity.data, modifier = modifier)
-          }
-          is Failed -> {
-            val context = ContextAmbient.current
-            val exception = (state as Failed).exception
-            Toast.makeText(context, exception, Toast.LENGTH_SHORT).show()
+
+        state.let { viewState ->
+          when (viewState) {
+            is Loading -> HomeLoading()
+            is Success -> HomeBody(data = viewState.entity.data, modifier = modifier)
+            is Failed -> Toast.makeText(ContextAmbient.current, viewState.exception, Toast.LENGTH_SHORT).show()
           }
         }
       }
